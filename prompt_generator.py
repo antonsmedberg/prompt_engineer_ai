@@ -9,7 +9,7 @@ class PromptGenerator:
         self.formatting_rules = FormattingRules.get_rules()
         self.task_categories = TaskCategory.get_categories()
 
-    def generate_prompt(self, role: str, task: str, specifics: str, context: str, examples: str, notes: str) -> str:
+    def generate_prompt(self, role: str, task: str, specifics: str, context: str, examples: str, notes: str, deadline: str, priority: str) -> str:
         """
         Generates a formatted prompt based on the given parameters.
 
@@ -20,6 +20,8 @@ class PromptGenerator:
             context (str): Context for the task.
             examples (str): Example implementations.
             notes (str): Additional notes.
+            deadline (str): Deadline for the task.
+            priority (str): Priority of the task.
 
         Returns:
             str: The formatted prompt.
@@ -48,6 +50,12 @@ class PromptGenerator:
 
 ### Notes
 {notes}
+
+### Deadline
+{deadline}
+
+### Priority
+{priority}
 """
         return prompt
 
@@ -58,7 +66,7 @@ class PromptGenerator:
         for rule, description in self.formatting_rules.items():
             print(f"{rule.capitalize()}: {description}")
 
-    def create_developer_prompt(self, role: str, task: str, specifics: str, context: str, examples: str, notes: str) -> str:
+    def create_developer_prompt(self, role: str, task: str, specifics: str, context: str, examples: str, notes: str, deadline: str, priority: str) -> str:
         """
         Creates a developer-specific prompt.
 
@@ -69,12 +77,13 @@ class PromptGenerator:
             context (str): Context for the task.
             examples (str): Example implementations.
             notes (str): Additional notes.
+            deadline (str): Deadline for the task.
+            priority (str): Priority of the task.
 
         Returns:
             str: The generated developer prompt.
         """
-        return self.generate_prompt(role, task, specifics, context, examples, notes)
-
+        return self.generate_prompt(role, task, specifics, context, examples, notes, deadline, priority)
 
 
 

@@ -2,6 +2,23 @@
 
 from prompt_generator import PromptGenerator
 
+
+#/ openai.api_key = 'din-api-nyckel'
+
+#def generate_dynamic_prompt(role, task, specifics, context, examples, notes, deadline, priority):
+# prompt_generator = PromptGenerator()
+# prompt = prompt_generator.create_developer_prompt(role, task, specifics, context, examples, notes, deadline, priority)
+    
+#  response = openai.Completion.create(
+    #    engine="text-davinci-003",
+#     prompt=f"Generate a more detailed and context-aware prompt based on the following:\n{prompt}",
+#      max_tokens=500
+#   )
+    
+#   return response.choices[0].text.strip()
+##/
+
+
 def main() -> None:
     """
     Main function to create a sample developer prompt and display formatting rules.
